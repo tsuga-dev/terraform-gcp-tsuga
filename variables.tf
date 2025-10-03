@@ -53,6 +53,7 @@ variable "builder_project_roles" {
   default = [
     "roles/container.clusterAdmin",
     "roles/compute.networkAdmin",
+    "roles/compute.securityAdmin",
     "roles/servicenetworking.networksAdmin",
     "roles/iam.serviceAccountAdmin",
     "roles/resourcemanager.projectIamAdmin",
