@@ -38,7 +38,7 @@ It uses **Service Account → Service Account impersonation** via the **IAM Cred
 | `region`                         | ✅                            |                                                       `europe-west1` | Region used by the providers (and some services).                                         |
 | `spacelift_integration_sa_email` | ✅                            |                       `gcp-abc123@spacelift.iam.gserviceaccount.com` | The **Spacelift GCP Integration Service Account** that should impersonate the builder SA. Given to you by Tsuga. |
 | `builder_sa_name`                | ❌ (default: `tsuga-builder`) |                                                      `tsuga-builder` | Builder SA account ID (email will be `<name>@<project>.iam.gserviceaccount.com`).         |
-| `developer_impersonators`        | ❌                            | `["group:gcp-organization-admins@tsuga.com"]` | Additional **users/groups/SAs** allowed to impersonate the builder SA. Given to you by Tsuga.                    |
+| `developer_impersonators`        | ❌                            | `["group:gcp-clusters-admins@tsuga.com"]` | Additional **users/groups/SAs** allowed to impersonate the builder SA. Given to you by Tsuga.                    |
 | `apis_to_enable`                 | ❌                            |                                                         see defaults | List of services to enable in your project.                                               |
 | `builder_project_roles`          | ❌                            |                                                         see defaults | Roles granted to the builder SA at the project level.                                     |
 
@@ -57,7 +57,7 @@ export GCP_REGION="europe-west1"
 export SPACELIFT_SA_EMAIL="gcp-xxxxx@spacelift.iam.gserviceaccount.com"
 
 # (Optional) Override developer impersonators if Tsuga shared additional ones
-# export DEV_IMPERSONATORS='["group:gcp-organization-admins@tsuga.com","group:new_group@tsuga.com"]'
+# export DEV_IMPERSONATORS='["group:gcp-clusters-admins@tsuga.com","group:new_group@tsuga.com"]'
 
 # 3) Apply
 terraform apply \
@@ -86,5 +86,5 @@ gcloud iam service-accounts get-iam-policy \
 # Should include:
 #  - roles/iam.serviceAccountTokenCreator
 #    - serviceAccount:gcp-xxxxx@spacelift.iam.gserviceaccount.com
-#    - group:gcp-organization-admins@tsuga.com (or your overrides)
+#    - group:gcp-clusters-admins@tsuga.com (or your overrides)
 ```
