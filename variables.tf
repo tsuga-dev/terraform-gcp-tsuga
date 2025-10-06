@@ -59,7 +59,7 @@ variable "builder_project_roles" {
     "roles/resourcemanager.projectIamAdmin",
     "roles/storage.admin",
     "roles/pubsub.admin",
-    "roles/certificatemanager.editor",
+    "roles/certificatemanager.owner",
     "roles/cloudsql.admin",
     "roles/serviceusage.serviceUsageAdmin",
   ]
