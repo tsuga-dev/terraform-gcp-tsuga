@@ -24,7 +24,7 @@ variable "developer_impersonators" {
   type        = list(string)
   description = "Human identities with Token Creator on the builder SA"
   default = [
-    "group:gcp-organization-admins@tsuga.com",
+    "group:gcp-clusters-admins@tsuga.com",
   ]
 }
 
